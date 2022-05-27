@@ -1,9 +1,14 @@
 .wrapper {
-  height: var(--default-layout-header-height, 60px);
-  width: 100%;
-  box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
   display: flex;
   justify-content: center;
+  background-color: var(--white);
+  width: 100%;
+  height: var(--default-layout-header-height, 60px);
+  box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
 
   --search-height: 46px;
 }
@@ -16,8 +21,9 @@
   justify-content: space-between;
 }
 
-.logo {
+.logo-link {
   cursor: pointer;
+  display: flex;
 }
 
 // Action
@@ -47,7 +53,7 @@
   font-size: 1.4rem;
   font-weight: 600;
   color: var(--white);
-  font-family: 'ProximaNova', sans-serif;
+  font-family: var(--font-family);
   background-color: var(--primary);
 }
 
