@@ -4,31 +4,35 @@ import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faEllipsisVertical,
-  faEarthAsia,
-  faCircleQuestion,
-  faKeyboard,
-  faUser,
-  faCoins,
-  faGear,
-  faSignOut,
-} from '@fortawesome/free-solid-svg-icons';
+import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu/Menu';
 import images from '~/assets/images';
-import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons/Icon';
+import {
+  ButtonUploadIcon,
+  CoinIcon,
+  FeedbackIcon,
+  InboxIcon,
+  KeyboardIcon,
+  LanguageIcon,
+  LogoutIcon,
+  MessageIcon,
+  ProfileIcon,
+  SettingIcon,
+  UploadIcon,
+} from '~/components/Icons/Icons';
 import Image from '~/components/Image/Image';
 import Search from '../Search/Search';
 import { Link } from 'react-router-dom';
 import config from '~/config';
+import avatar1 from '~/assets/images/avatar/avatar1.jpeg';
 
 const cx = classNames.bind(styles);
 
 const MENU_ITEMS = [
   {
-    icon: <FontAwesomeIcon icon={faEarthAsia} />,
+    icon: <LanguageIcon />,
     title: 'English',
     children: {
       title: 'Language',
@@ -49,12 +53,12 @@ const MENU_ITEMS = [
     },
   },
   {
-    icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+    icon: <FeedbackIcon />,
     title: 'Feedback and Help',
     to: '/feedback',
   },
   {
-    icon: <FontAwesomeIcon icon={faKeyboard} />,
+    icon: <KeyboardIcon />,
     title: 'Keyboard shortcuts',
   },
 ];
@@ -64,24 +68,24 @@ function Header() {
 
   const userMenu = [
     {
-      icon: <FontAwesomeIcon icon={faUser} />,
+      icon: <ProfileIcon />,
       title: 'View profile',
       to: '/profile',
     },
     {
-      icon: <FontAwesomeIcon icon={faCoins} />,
+      icon: <CoinIcon />,
       title: 'Get coins',
       to: '/coin',
     },
     {
-      icon: <FontAwesomeIcon icon={faGear} />,
+      icon: <SettingIcon />,
       title: 'Settings',
       to: '/setting',
     },
 
     ...MENU_ITEMS,
     {
-      icon: <FontAwesomeIcon icon={faSignOut} />,
+      icon: <LogoutIcon />,
       title: 'Log out',
       to: '/logout',
       separate: true,
@@ -120,18 +124,16 @@ function Header() {
             </>
           ) : (
             <>
-              <Button text>Upload</Button>
+              <Button uploadText className={cx('button-upload')}>
+                <ButtonUploadIcon />
+                Upload
+              </Button>
               <Button primary>Log in</Button>
             </>
           )}
           <Menu items={currentUser ? userMenu : MENU_ITEMS}>
             {currentUser ? (
-              <Image
-                className={cx('user-avatar')}
-                alt="Nguyenvana"
-                src=""
-                fallback="https://static.fullstack.edu.vn/static/media/f8-icon.7ad2b161d5e80c87e516.png"
-              />
+              <Image className={cx('user-avatar')} alt="Nguyenvana" src="" fallback={avatar1} />
             ) : (
               <button className={cx('more-btn')}>
                 <FontAwesomeIcon icon={faEllipsisVertical} />

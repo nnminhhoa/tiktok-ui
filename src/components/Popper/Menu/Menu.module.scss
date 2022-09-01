@@ -8,7 +8,7 @@
 }
 
 .menu-popper {
-  padding-bottom: 8px;
+  padding-bottom: 6px;
 }
 
 .menu-body {
@@ -19,7 +19,7 @@
 
 .menu-item {
   width: 100%;
-  text-align: left;
+  justify-content: flex-start;
   border-radius: 0;
   padding: 11px 16px;
   line-height: 1.8rem;

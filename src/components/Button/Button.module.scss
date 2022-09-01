@@ -1,4 +1,7 @@
 .wrapper {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   font-size: 1.6rem;
   font-weight: 600;
   padding: 8px 16px;
@@ -8,6 +11,7 @@
   background-color: var(--white);
   border: 1px solid transparent;
   font-family: var(--font-family);
+  line-height: 1.8rem;
 
   + .wrapper {
     margin-left: 8px;
@@ -21,13 +25,27 @@
 }
 .icon + .title,
 .title + .icon {
-  margin-left: 6px;
+  margin-left: 8px;
 }
 
 .icon {
-  display: inline-block;
+  display: flex;
   width: 20px;
   text-align: center;
+  align-items: center;
+}
+
+// Button Upload
+.uploadText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  box-shadow: unset;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 // Button
@@ -42,7 +60,6 @@
 .outline {
   border-color: var(--primary);
   color: var(--primary);
-  opacity: 0.8;
 
   &:hover {
     background-color: rgba(254, 44, 85, 0.06);
@@ -51,7 +68,7 @@
 
 .text {
   box-shadow: unset;
-  opacity: 0.8;
+
   &:hover {
     text-decoration: underline;
   }

@@ -1,4 +1,5 @@
 @import 'normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;300;400;500;600;700&display=swap');
 
 // Fonts
 @font-face {
@@ -28,7 +29,7 @@
   // DefaultLayout
   --default-layout-header-height: 60px;
   --default-layout-width: 1150px;
-  --default-layout-horizontal-spacer: 24px;
+  --default-layout-horizontal-spacer: 20px;
 
   // colors
   --black: #000000;
@@ -65,24 +66,9 @@ html *::-webkit-scrollbar {
   width: 8px;
 }
 
-html *::-webkit-scrollbar {
-  border-radius: 0;
-  width: 8px;
-}
-
 html *::-webkit-scrollbar-thumb {
   border-radius: 4px;
   background-color: rgba(0, 0, 0, 0.15);
-}
-
-html *::-webkit-scrollbar-thumb {
-  border-radius: 4px;
-  background-color: rgba(0, 0, 0, 0.15);
-}
-
-html *::-webkit-scrollbar-track {
-  border-radius: 0;
-  background-color: rgba(0, 0, 0, 0);
 }
 
 html *::-webkit-scrollbar-track {
@@ -96,7 +82,7 @@ button,
   outline: none;
   border: none;
 }
-a[href] {
+a {
   color: var(--text-color);
   text-decoration: none;
 }

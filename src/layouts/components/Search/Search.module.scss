@@ -13,9 +13,10 @@
   position: relative;
 
   input {
-    color: var(--black);
     flex: 1;
+    color: var(--black);
     font-size: 1.6rem;
+    padding-right: 35px;
     background-color: transparent;
     height: 100%;
     caret-color: rgb(254 44 85);

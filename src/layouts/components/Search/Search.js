@@ -8,7 +8,7 @@ import { useDebounce } from '~/hooks';
 import * as searchService from '~/services/searchService';
 
 import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
-import { SearchIcon } from '~/components/Icons/Icon';
+import { SearchIcon } from '~/components/Icons/Icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const cx = classNames.bind(styles);
@@ -19,12 +19,12 @@ function Search() {
   const [showResult, setShowResult] = useState(true);
   const [loading, setLoading] = useState(false);
 
-  const debounce = useDebounce(searchValue, 500);
+  const debounceValue = useDebounce(searchValue, 500);
 
   const inputRef = useRef();
 
   useEffect(() => {
-    if (!debounce.trim()) {
+    if (!debounceValue.trim()) {
       setSearchResult([]);
       return;
     }
@@ -34,13 +34,13 @@ function Search() {
     const fetchApi = async () => {
       setLoading(true);
 
-      const result = await searchService.search(debounce, 'less');
+      const result = await searchService.search(debounceValue, 'less');
       setSearchResult(result);
       setLoading(false);
     };
 
     fetchApi();
-  }, [debounce]);
+  }, [debounceValue]);
 
   const handleClear = () => {
     setSearchValue('');

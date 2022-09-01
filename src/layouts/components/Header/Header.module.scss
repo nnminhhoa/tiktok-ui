@@ -74,3 +74,12 @@
   cursor: pointer;
   margin-left: 10px;
 }
+
+// Custom button
+.button-upload {
+  border: 1px solid rgb(22 24 35 / 12%) !important;
+
+  &:hover {
+    background-color: rgb(22 24 35 / 3%);
+  }
+}
