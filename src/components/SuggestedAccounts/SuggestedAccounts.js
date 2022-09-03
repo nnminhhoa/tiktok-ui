@@ -5,25 +5,27 @@ import AccountItem from './AccountItem';
 
 const cx = classNames.bind(styles);
 
-function SuggestedAccounts({ label }) {
+function SuggestedAccounts({ label, data = [], onViewChange }) {
   return (
     <div className={cx('wrapper')}>
       <p className={cx('label')}>{label}</p>
 
-      <AccountItem />
-      <AccountItem />
-      <AccountItem />
-      <AccountItem />
-      <AccountItem />
-      <AccountItem />
+      {data.map((user) => (
+        <AccountItem key={user.id} user={user} />
+      ))}
 
-      <p className={cx('more-btn')}>See all</p>
+      <p className={cx('more-btn')} onClick={onViewChange}>
+        See all
+      </p>
     </div>
   );
 }
 
 SuggestedAccounts.propTypes = {
   label: PropTypes.string.isRequired,
+  data: PropTypes.array,
+  onViewChange: PropTypes.func,
+  isSeeAll: PropTypes.bool,
 };
 
 export default SuggestedAccounts;
